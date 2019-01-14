@@ -9,9 +9,9 @@
 
   <dependencies>
     <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.5</version>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.5</version>
     </dependency>
     <dependency>
       <groupId>com.sparkjava</groupId>
@@ -19,9 +19,9 @@
       <version>2.8.0</version>
     </dependency>
     <dependency>
-        <groupId>com.google</groupId>
-        <artifactId>ortools</artifactId>
-        <version>6.10.6025</version>
+      <groupId>com.google</groupId>
+      <artifactId>ortools</artifactId>
+      <version>6.10.6025</version>
     </dependency>
     <dependency>
       <groupId>org.immutables</groupId>
@@ -62,6 +62,7 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
