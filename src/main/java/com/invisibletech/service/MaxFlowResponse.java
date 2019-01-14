@@ -1,13 +1,28 @@
 package com.invisibletech.service;
 
-class MaxFlowResponse {
-  // TODO:
-  // Add a new Type
-  // FlowArc  that holds maxFlow and capacity  for Tail (source) and Head (sink)
-  // Add a field for optimalFlow
-  // enum indicating status from:
-  //  OPTIMAL, POSSIBLE_OVERFLOW, BAD_INPUT, BAD_RESULT
-  // So for all but optimal, return just the status... no FlowArcs
-  //
-  //
+import java.util.List;
+import org.immutables.value.Value;
+import org.immutables.gson.Gson;
+
+@Gson.TypeAdapters
+@Value.Immutable
+public abstract class MaxFlowResponse {
+  @Value.Immutable
+  public static abstract class SolutionArc {
+    public abstract String tail();
+    public abstract String head();
+    public abstract long maxFlow();
+    public abstract long capacity();
+  }
+
+  public enum Status {
+    BAD_INPUT,
+    BAD_RESULT,
+    OPTIMAL,
+    POSSIBLE_OVERFLOW;
+  }
+
+  public abstract Status status();
+  public abstract long optimalFlow();
+  public abstract List<SolutionArc> arcs();
 }

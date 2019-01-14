@@ -1,32 +1,20 @@
 package com.invisibletech.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import org.immutables.gson.Gson;
+import org.immutables.value.Value;
 
-public class MaxFlowRequest {
-  public static class Arc {
-    private final String sourceNode;
-    private final String sinkNode;
-    private final long capacity;
-
-    Arc(String sourceNode, String sinkNode, long capacity) {
-      this.sourceNode = sourceNode;
-      this.sinkNode = sinkNode;
-      this.capacity = capacity;
-    }
-
-    public String getSourceNode() {
-      return this.sourceNode;
-    }
-
-    public String getSinkNode() {
-      return this.sinkNode;
-    }
+@Gson.TypeAdapters
+@Value.Immutable
+public abstract class MaxFlowRequest {
+  @Value.Immutable
+  public static abstract class Arc {
+    public abstract String tail();
+    public abstract String head();
+    public abstract long capacity();
   }
 
-  private List<Arc> arcs;
-
-  public List<Arc> getArcs() {
-    return new ArrayList<>(this.arcs);
-  }
+  public abstract List<Arc> arcs();
+  public abstract String source();
+  public abstract String sink();
 }
