@@ -46,6 +46,28 @@ Then post a request (below) using whatever makes you productive to:
 
     http://localhost:8080/max_flow
 
+## Running the Server Locally From Docker
+
+Assuming you have `Docker` installed, the following steps or something like them will get
+you up and running:
+
+    docker build -t or_tools_svc:1.0.2 .
+
+Choose your tag or use this one. To run the application using the name `or_tools`:
+
+    docker run -d  -p 8080:8080  --name or_tools or_tools_svc:1.0.2
+
+Now that you are running, you should be able to `POST` a sample request.  If you have issues
+then try looking at what gets logged:
+
+    docker logs -f or_tools
+
+If you want to log on to the running container and look at what's there:
+
+    docker exec -it or_tools /bin/bash
+
+Gets you an ssh shell.
+
 ## Sample Request
 
 The request is done via an `HTTP POST` using `Encoding: UTF-8` and
