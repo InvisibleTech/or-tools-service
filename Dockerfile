@@ -1,12 +1,10 @@
 FROM centos:7
 
-# Install Python and JDK.
+# Install compiler, tools, JRE and JDK .
 RUN yum -y update \
-&& yum -y --enablerepo=extras install epel-release \
-&& yum -y install yum-utils \
 && yum -y install java-11-openjdk.x86_64 java-11-openjdk-devel.x86_64 \
 && yum -y install \
- wget git pkg-config make autoconf libtool zlib-devel gawk gcc-c++ curl subversion \
+ wget pkg-config make autoconf libtool zlib-devel gawk gcc-c++ \
   redhat-lsb-core pcre-devel which \
 && yum clean all \
 && rm -rf /var/cache/yum
